@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Frosted Glass FX with CSS</title>
+
+    <link rel="stylesheet" href="https://lib.lgkonline.com/lgk-icons/style.min.css">
+
+    <style type="text/css">
+             ::-webkit-scrollbar {
+            height: .6rem;
+            overflow: visible;
+            width: .6rem
+        }
+
+         ::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, .2);
+            background-clip: padding-box;
+            border: solid transparent;
+            border-width: 1px;
+            min-height: 28px;
+            padding: 100px 0 0;
+            border-radius: .3rem; // box-shadow:inset 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(0,0,0,.07)}::-webkit-scrollbar-thumb:hover{background-color:rgba(0,0,0,.3)}::-webkit-scrollbar-thumb:active{background-color:rgba(0,0,0,.4)}::-webkit-scrollbar-button{height:0;width:0}::-webkit-scrollbar-track{background-color:rgba(236,240,241,.9);border:solid transparent;border-width:0 0 0 4px}::-webkit-scrollbar-corner{background:0 0}
+            *:focus {
+                outline: none;
+            }
+
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                font-size: 2em;
+                margin: 0;
+                cursor: default;
+            }
+
+            body.modal-in {
+                overflow: hidden;
+            }
+
+            body.modal-in::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+
+            h2 {
+                font-weight: 300;
+            }
+
+            input,
+            button {
+                font: inherit;
+            }
+
+            a {
+                text-decoration: none;
+                color: #2980b9;
+            }
+            a:hover,
+            a:focus {
+                color: #3498db;
+            }
+
+            button {
+                cursor: pointer;
+                padding: .5em 1em;
+                background-color: #2980b9;
+                border: 2px solid #3498db;
+                border-radius: .2em;
+                color: white;
+            }
+
+            button:hover,
+            button:focus {
+                background-color: #3498db;
+            }
+
+            header {
+                background: url(pexels-photo-221361.jpg) no-repeat fixed;
+                background-size: cover;
+                box-shadow: inset 0 0 0 2038px rgba(0, 0, 0, .5);
+                color: white;
+                padding-bottom: 1em;
+                text-align: center;
+                position: relative;
+            }
+
+            header::before,
+            header::after {
+                content: "";
+                display: table;
+            }
+
+            main a {
+                border-bottom: 1px solid;
+            }
+
+            section {
+                padding: 0 calc(50% - 28rem);
+            }
+
+            .bg {
+                background: no-repeat fixed;
+                background-size: cover;
+            }
+
+            .frosted-glass {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .frosted-glass::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: inherit;
+                background-color: white;
+                filter: blur(10px);
+                margin: -20px;
+            }
+
+            .frosted-glass .frosted-glass-content {
+                position: relative;
+            }
+
+            .frosted-glass .frosted-glass-content::before,
+            .frosted-glass .frosted-glass-content::after {
+                content: "";
+                display: table;
+            }
+
+            .modal {
+                display: none;
+                position: absolute;
+                width: 600px;
+                top: 4em;
+                left: calc(50% - 300px);
+                text-align: center;
+            }
+
+            .modal-in .modal,
+            .modal-out .modal {
+                display: block;
+            }
+
+            .modal-in .modal {
+                box-shadow: 0 0.5em 1em rgba(0, 0, 0, .3);
+                animation: modal-in 1s;
+            }
+
+            @keyframes modal-in {
+                from {
+                    box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+                    margin-top: 100vh;
+                }
+                to {
+                    box-shadow: 0 0.5em 1em rgba(0, 0, 0, .3);
+                    margin-top: 0;
+                }
+            }
+
+            .modal-out .modal {
+                box-shadow: 0 0.5em 1em rgba(0, 0, 0, .1);
+                animation: modal-out 1s;
+            }
+
+            @keyframes modal-out {
+                from {
+                    box-shadow: 0 0.5em 1em rgba(0, 0, 0, .3);
+                    margin-top: 0;
+                }
+                to {
+                    box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+                    margin-top: 100vh;
+                }
+            }
+
+            .modal .frosted-glass-content {
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: rgba(236, 240, 241, .5);
+                padding: 1em;
+                box-sizing: border-box;
+            }
+
+            footer {
+                text-align: center;
+                font-size: 2em;
+            }
+
+            footer a {
+                color: #ddd;
+            }
+            footer a:hover,
+            footer a:focus {
+                color: #ccc;
+            }
+    </style>
+</head>
+
+<body>
+    <header>
+        <section>
+            <h1>Frosted Glass FX with CSS</h1>
+
+            <button type="button" onclick="showModal()">show modal</button>
+        </section>
+    </header>
+
+    <main>
+        <section>
+            <h2>How is this working?</h2>
+            <p>
+                I use <a href="http://html2canvas.hertzen.com">html2canvas.js</a> to create a screenshot of the current page.<br>                This screenshot will get used by the modal as a background image. Thanks to CSS I can then use a blur filter.
+            </p>
+            <p>
+                Set a half transparent background above and boom: We have a cool frosty glass effect on our modal.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <section>
+            <a href="https://lgk.io">
+                    <span class="icon-lgk-filled"></span>
+                </a>
+        </section>
+    </footer>
+
+    <div class="bg frosted-glass modal">
+        <div class="frosted-glass-content">
+            <h2>I am a modal!</h2>
+
+            <button type="button" onclick="hideModal()">hide modal</button>
+        </div>
+    </div>
+
+    <script src="html2canvas.js"></script>
+
+    <script>
+        function hasClass(el, className) {
+            if (el.classList)
+                return el.classList.contains(className);
+            else
+                return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
+        }
+
+        function addClass(el, className) {
+            if (el.classList)
+                el.classList.add(className);
+            else if (!hasClass(el, className))
+                el.className += " " + className;
+        }
+
+        function removeClass(el, className) {
+            if (el.classList)
+                el.classList.remove(className);
+            else if (hasClass(el, className))
+                el.className = el.className.replace(new RegExp('(\\s|^)' + className + '(\\s|$)'), ' ');
+        }
+    </script>
+
+    <script>
+        var modal = document.querySelectorAll(".modal");
+
+        function takeScreenshot(whenReady) {
+            html2canvas(document.body, {
+                onrendered: function (canvas) {
+                    var data = canvas.toDataURL();
+                    // console.log(data);
+
+                    var bgElements = document.querySelectorAll(".bg");
+
+                    var i, length = bgElements.length;
+                    for (i = 0; i < length; i++) {
+                        bgElements[i].style.backgroundImage = "url(" + data + ")";
+                    }
+
+                    whenReady();
+                }
+            });
+        }
+
+        function showModal() {
+            takeScreenshot(function () {
+                addClass(document.body, "modal-in");
+            });
+        }
+
+        function hideModal() {
+            removeClass(document.body, "modal-in");
+            addClass(document.body, "modal-out");
+
+            setTimeout(function () {
+                removeClass(document.body, "modal-out");
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
