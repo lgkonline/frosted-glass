@@ -72,32 +72,31 @@ button {
 
 a {
     text-decoration: none;
-    color: #2980b9;
+    color: #8ea6d0;
 }
 
 a:hover,
 a:focus {
-    color: #3498db;
+    color: #6a8ac1;
 }
 
 button {
     cursor: pointer;
     padding: .5em 1em;
-    background-color: #2980b9;
-    border: 2px solid #3498db;
+    background-color: #8ea6d0;
+    border: none;
     border-radius: .2em;
     color: white;
 }
 
 button:hover,
 button:focus {
-    background-color: #3498db;
+    background-color: #6a8ac1;
 }
 
 header {
-    background: url(pexels-photo-221361.jpg) no-repeat fixed;
+    background: url(photo-1501717407930-5716fb0dc375.jpg) no-repeat fixed;
     background-size: cover;
-    box-shadow: inset 0 0 0 2038px rgba(0, 0, 0, .5);
     color: white;
     padding-bottom: 1em;
     text-align: center;
@@ -212,11 +211,8 @@ footer {
     font-size: 2em;
 }
 
-footer a {
-    color: #ddd;
-}
-
+footer a,
 footer a:hover,
 footer a:focus {
-    color: #ccc;
+    color: #ddd;
 }
